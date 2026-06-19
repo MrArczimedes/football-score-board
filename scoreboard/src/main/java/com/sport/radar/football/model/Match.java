@@ -63,4 +63,14 @@ public class Match {
     public void undoAwayTeamGoal() {
         awayTeam.undoGoal();
     }
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "id=" + id +
+                ", homeTeam=" + homeTeam +
+                ", awayTeam=" + awayTeam +
+                ", finished=" + finished +
+                '}';
+    }
 }

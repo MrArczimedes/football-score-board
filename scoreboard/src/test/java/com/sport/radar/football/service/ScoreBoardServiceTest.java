@@ -1,5 +1,6 @@
 package com.sport.radar.football.service;
 
+import com.sport.radar.football.exceptions.CannotUndoException;
 import com.sport.radar.football.exceptions.TeamNameException;
 import com.sport.radar.football.model.Match;
 import com.sport.radar.football.service.impl.ScoreBoardServiceImpl;
@@ -179,8 +180,31 @@ class ScoreBoardServiceTest {
         scoreBoardService.awayTeamScores(3);
         assertEquals(3, scoreBoardService.getScoreboard().get(3).getAwayTeamScore());
         //UNDO GOAL
-        scoreBoardService.undoHomeTeamGoal(3);
+        scoreBoardService.undoAwayTeamGoal(3);
         assertEquals(2, scoreBoardService.getScoreboard().get(3).getAwayTeamScore());
+    }
+
+    @Test
+    void cannotUndoHomeTeamGoal_when_resultWillBeNegative(){
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        //WHEN
+        CannotUndoException ex = assertThrows(CannotUndoException.class, () -> scoreBoardService.undoHomeTeamGoal(3));
+        //THEN
+        assertEquals("Score cannot be negative", ex.getMessage());
+    }
+
+    @Test
+    void cannotUndoHomeTeamGoal_when_undoWasAlreadyDone(){
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        scoreBoardService.homeTeamScores(3);
+        scoreBoardService.homeTeamScores(3);
+        scoreBoardService.undoHomeTeamGoal(3);
+        //WHEN
+        CannotUndoException ex = assertThrows(CannotUndoException.class, () -> scoreBoardService.undoHomeTeamGoal(3));
+        //THEN
+        assertEquals("Undo goal is already done", ex.getMessage());
     }
 
     private Map<Integer, Match> testData() {
