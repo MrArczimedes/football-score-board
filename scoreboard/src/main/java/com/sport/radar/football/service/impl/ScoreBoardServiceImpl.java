@@ -21,6 +21,14 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
         matchSequenceId = testData.size()+1;
     }
 
+    private static class Holder {
+        private static final ScoreBoardServiceImpl INSTANCE = new ScoreBoardServiceImpl();
+    }
+
+    public static ScoreBoardServiceImpl getInstance() {
+        return Holder.INSTANCE;
+    }
+
     public ScoreBoardServiceImpl() {
     }
 
