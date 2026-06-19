@@ -37,6 +37,14 @@ public class TeamWithScore {
         }
     }
 
+    void winWalkover() {
+        this.score = 3;
+    }
+
+    void looseWalkover(){
+        this.score = 0;
+    }
+
     @Override
     public String toString() {
         return "TeamWithScore{" +
