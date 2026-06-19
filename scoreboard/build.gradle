@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.sport.radar.football'
+version = '1.0-SNAPSHOT'
+
+java {
+    // Wymuszenie użycia Java 25 jako standardu w projekcie
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
