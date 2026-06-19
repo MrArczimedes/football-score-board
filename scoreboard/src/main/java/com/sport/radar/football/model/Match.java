@@ -43,4 +43,8 @@ public class Match {
     public int getAwayTeamScore() {
         return getAwayTeam().getScore();
     }
+
+    public void finishMatch() {
+        this.finished = true;
+    }
 }
