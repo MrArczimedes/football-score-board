@@ -1,15 +1,29 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group = 'com.sport.radar.football'
 version = '1.0-SNAPSHOT'
 
 java {
-    // Wymuszenie użycia Java 25 jako standardu w projekcie
     toolchain {
         languageVersion = JavaLanguageVersion.of(25)
     }
+}
+
+javafx {
+    version = "25"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    mainClass = 'com.sport.radar.football.Main'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
 
 repositories {
