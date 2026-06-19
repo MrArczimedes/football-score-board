@@ -16,4 +16,8 @@ public class TeamWithScore {
     public int getScore() {
         return score;
     }
+
+    public void addGoal() {
+        this.score++;
+    }
 }

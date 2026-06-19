@@ -47,4 +47,12 @@ public class Match {
     public void finishMatch() {
         this.finished = true;
     }
+
+    public void homeTeamScores() {
+        homeTeam.addGoal();
+    }
+
+    public void awayTeamScores() {
+        awayTeam.addGoal();
+    }
 }

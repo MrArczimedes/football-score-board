@@ -43,11 +43,12 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
 
     @Override
     public void homeTeamScores(int id) {
-
+        scoreBoard.get(id).homeTeamScores();
     }
 
     @Override
     public void awayTeamScores(int id) {
+        scoreBoard.get(id).awayTeamScores();
 
     }
 

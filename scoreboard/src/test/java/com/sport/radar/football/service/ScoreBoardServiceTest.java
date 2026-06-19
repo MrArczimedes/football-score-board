@@ -104,10 +104,54 @@ class ScoreBoardServiceTest {
 
     @Test
     void homeTeamScores() {
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        //WHEN
+        scoreBoardService.homeTeamScores(2);
+        //THEN
+        Match match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(1, match.getHomeTeamScore());
+        //WHEN
+        scoreBoardService.homeTeamScores(2);
+        //THEN
+        match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(2, match.getHomeTeamScore());
+        //WHEN
+        scoreBoardService.homeTeamScores(2);
+        //THEN
+        match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(3, match.getHomeTeamScore());
+        //WHEN
+        scoreBoardService.homeTeamScores(2);
+        //THEN
+        match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(4, match.getHomeTeamScore());
     }
 
     @Test
     void awayTeamScores() {
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        //WHEN
+        scoreBoardService.awayTeamScores(2);
+        //THEN
+        Match match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(1, match.getAwayTeamScore());
+        //WHEN
+        scoreBoardService.awayTeamScores(2);
+        //THEN
+        match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(2, match.getAwayTeamScore());
+        //WHEN
+        scoreBoardService.awayTeamScores(2);
+        //THEN
+        match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(3, match.getAwayTeamScore());
+        //WHEN
+        scoreBoardService.awayTeamScores(2);
+        //THEN
+        match = scoreBoardService.getScoreboard().get(2);
+        assertEquals(4, match.getAwayTeamScore());
     }
 
     @Test
