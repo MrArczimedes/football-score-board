@@ -17,4 +17,11 @@ First, I did domain and logic in services, with all required tests. Next I will 
 11. summary window display all matches by higher score
 
 
-8th, 9th and 11th assumption will be done in javaFx controller. 
+8th, 9th and 11th assumption will be done in javaFx controller.
+
+**HOW TO RUN**
+
+These are 2 ways:
+
+1. In inteliji idea go to gradle toolbar -> PROJECT_NAME -> Tasks -> application -> run
+2. .\gradlew run
