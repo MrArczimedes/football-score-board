@@ -9,4 +9,11 @@ public class TeamWithScore {
         this.teamName = teamName;
     }
 
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public int getScore() {
+        return score;
+    }
 }

@@ -11,4 +11,36 @@ public class Match {
         this.homeTeam = new TeamWithScore(homeTeamName);
         this.awayTeam = new TeamWithScore(awayTeamName);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public TeamWithScore getHomeTeam() {
+        return homeTeam;
+    }
+
+    public TeamWithScore getAwayTeam() {
+        return awayTeam;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public String getHomeTeamName() {
+        return getHomeTeam().getTeamName();
+    }
+
+    public String getAwayTeamName() {
+        return getAwayTeam().getTeamName();
+    }
+
+    public int getHomeTeamScore() {
+        return getHomeTeam().getScore();
+    }
+
+    public int getAwayTeamScore() {
+        return getAwayTeam().getScore();
+    }
 }
