@@ -207,6 +207,31 @@ class ScoreBoardServiceTest {
         assertEquals("Undo goal is already done", ex.getMessage());
     }
 
+    @Test
+    void walkoverForHomeTeam() {
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        //WHEN
+        Match match = scoreBoardService.getScoreboard().get(2);
+        match.walkOverForAwayTeam();
+        //THEN
+        assertEquals(0, match.getHomeTeamScore());
+        assertEquals(3, match.getAwayTeamScore());
+        assertTrue(match.isFinished());
+    }
+
+    @Test
+    void walkoverForAwayTeam() {
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        //WHEN
+        Match match = scoreBoardService.getScoreboard().get(2);
+        match.walkOverForHomeTeam();
+        //THEN
+        assertEquals(0, match.getAwayTeamScore());
+        assertEquals(3, match.getHomeTeamScore());
+        assertTrue(match.isFinished());
+    }
     private Map<Integer, Match> testData() {
         return Map.of(1, new Match(1, "Brazil", "Poland"),
                 2, new Match(2, "Germany", "Uruguay"),

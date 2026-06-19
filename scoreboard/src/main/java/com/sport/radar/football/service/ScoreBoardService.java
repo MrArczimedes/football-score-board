@@ -12,4 +12,8 @@ public interface ScoreBoardService {
     void awayTeamScores(int id);
     void undoHomeTeamGoal(int id);
     void undoAwayTeamGoal(int id);
+    void walkoverForHomeTeam(int id);
+    void walkoverForAwayTeam(int id);
+
+
 }

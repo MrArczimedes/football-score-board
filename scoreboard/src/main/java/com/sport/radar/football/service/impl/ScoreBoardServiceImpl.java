@@ -62,6 +62,16 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
         scoreBoard.get(id).undoAwayTeamGoal();
     }
 
+    @Override
+    public void walkoverForHomeTeam(int id) {
+        scoreBoard.get(id).walkOverForHomeTeam();
+    }
+
+    @Override
+    public void walkoverForAwayTeam(int id) {
+        scoreBoard.get(id).walkOverForAwayTeam();
+    }
+
     private void increaseSequence() {
         matchSequenceId++;
     }

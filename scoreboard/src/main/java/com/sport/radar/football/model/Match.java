@@ -1,9 +1,9 @@
 package com.sport.radar.football.model;
 
 public class Match {
-    private int id;
-    private TeamWithScore homeTeam;
-    private TeamWithScore awayTeam;
+    private final int id;
+    private final TeamWithScore homeTeam;
+    private final TeamWithScore awayTeam;
     private boolean finished = false;
 
     public Match(int id, String homeTeamName, String awayTeamName) {
@@ -62,6 +62,18 @@ public class Match {
 
     public void undoAwayTeamGoal() {
         awayTeam.undoGoal();
+    }
+
+    public void walkOverForHomeTeam() {
+        homeTeam.winWalkover();
+        awayTeam.looseWalkover();
+        finished = true;
+    }
+
+    public void walkOverForAwayTeam() {
+        homeTeam.looseWalkover();
+        awayTeam.winWalkover();
+        finished = true;
     }
 
     @Override
