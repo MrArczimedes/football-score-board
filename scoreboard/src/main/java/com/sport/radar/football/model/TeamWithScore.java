@@ -20,4 +20,8 @@ public class TeamWithScore {
     public void addGoal() {
         this.score++;
     }
+
+    public void undoGoal() {
+        this.score--;
+    }
 }

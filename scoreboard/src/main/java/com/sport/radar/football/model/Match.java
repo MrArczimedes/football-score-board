@@ -55,4 +55,12 @@ public class Match {
     public void awayTeamScores() {
         awayTeam.addGoal();
     }
+
+    public void undoHomeTeamGoal() {
+        homeTeam.undoGoal();
+    }
+
+    public void undoAwayTeamGoal() {
+        awayTeam.undoGoal();
+    }
 }

@@ -54,12 +54,12 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
 
     @Override
     public void undoHomeTeamGoal(int id) {
-
+        scoreBoard.get(id).undoHomeTeamGoal();
     }
 
     @Override
     public void undoAwayTeamGoal(int id) {
-
+        scoreBoard.get(id).undoAwayTeamGoal();
     }
 
     private void increaseSequence() {

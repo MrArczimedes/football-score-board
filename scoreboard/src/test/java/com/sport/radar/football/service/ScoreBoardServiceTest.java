@@ -103,7 +103,7 @@ class ScoreBoardServiceTest {
     }
 
     @Test
-    void homeTeamScores() {
+    void homeTeamScores_4times() {
         //GIVEN
         scoreBoardService = new ScoreBoardServiceImpl(testData());
         //WHEN
@@ -129,7 +129,7 @@ class ScoreBoardServiceTest {
     }
 
     @Test
-    void awayTeamScores() {
+    void awayTeamScores_4times() {
         //GIVEN
         scoreBoardService = new ScoreBoardServiceImpl(testData());
         //WHEN
@@ -156,10 +156,31 @@ class ScoreBoardServiceTest {
 
     @Test
     void undoHomeTeamGoal() {
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        //HOME TEAM SCORE IS 3
+        scoreBoardService.homeTeamScores(3);
+        scoreBoardService.homeTeamScores(3);
+        scoreBoardService.homeTeamScores(3);
+        assertEquals(3, scoreBoardService.getScoreboard().get(3).getHomeTeamScore());
+        //UNDO GOAL
+        scoreBoardService.undoHomeTeamGoal(3);
+        assertEquals(2, scoreBoardService.getScoreboard().get(3).getHomeTeamScore());
+
     }
 
     @Test
     void undoAwayTeamGoal() {
+        //GIVEN
+        scoreBoardService = new ScoreBoardServiceImpl(testData());
+        //AWAY TEAM SCORE IS 3
+        scoreBoardService.awayTeamScores(3);
+        scoreBoardService.awayTeamScores(3);
+        scoreBoardService.awayTeamScores(3);
+        assertEquals(3, scoreBoardService.getScoreboard().get(3).getAwayTeamScore());
+        //UNDO GOAL
+        scoreBoardService.undoHomeTeamGoal(3);
+        assertEquals(2, scoreBoardService.getScoreboard().get(3).getAwayTeamScore());
     }
 
     private Map<Integer, Match> testData() {
